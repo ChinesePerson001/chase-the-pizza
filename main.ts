@@ -7,6 +7,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
     info.startCountdown(10)
 })
 let pizza: Sprite = null
+let Speed_of_player = 0
 scene.setBackgroundColor(7)
 let mySprite = sprites.create(img`
 . . 2 2 2 2 2 2 2 2 2 2 . . . . 
@@ -26,7 +27,7 @@ let mySprite = sprites.create(img`
 . . . . . . . . . . . . . . . . 
 . . . . . . . . . . . . . . . . 
 `, SpriteKind.Player)
-controller.moveSprite(mySprite)
+controller.moveSprite(mySprite, Speed_of_player, Speed_of_player)
 pizza = sprites.create(img`
 . . . . . . . . . . . . . b e e b b b b . . . . . . . . . . . . 
 . . . . . . . . . . . . e e b b b b 4 b b . . . . . . . . . . . 
