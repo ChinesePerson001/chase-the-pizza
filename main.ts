@@ -3,11 +3,16 @@ namespace SpriteKind {
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
     info.changeScoreBy(1)
+    pizza_ate += 1
     pizza.setPosition(Math.randomRange(10, 160), Math.randomRange(10, 120))
     info.startCountdown(10)
+    if (pizza_ate % 10 == 0) {
+        Speed_of_player += -5
+    }
 })
+let pizza_ate = 0
 let pizza: Sprite = null
-let Speed_of_player = 0
+let Speed_of_player = 100
 scene.setBackgroundColor(7)
 let mySprite = sprites.create(img`
 . . 2 2 2 2 2 2 2 2 2 2 . . . . 
@@ -62,3 +67,4 @@ b 5 5 5 1 1 5 d d d d 5 5 d 5 4 4 e e d e . . . . . . . . . . .
 4 1 5 5 4 e e d e . . . . . . . . . . . . . . . . . . . . . . . 
 4 4 e e . . . 4 e . . . . . . . . . . . . . . . . . . . . . . . 
 `, SpriteKind.Food)
+pizza_ate = 0
